@@ -79,6 +79,11 @@ public class CallBackHandler {
      * The passed verification token (as query parameter) must match the configured verification token.
      * In case this is true, the passed challenge string must be returned by this endpoint.
      */
+    @RequestMapping(value = "/",method = RequestMethod.GET)
+    public String welcome() {
+        return "Hello";
+    }
+
     @RequestMapping(value = "/webhooks",method = RequestMethod.GET)
     public ResponseEntity<String> verifyWebhook(@RequestParam("hub.mode") final String mode,
                                                 @RequestParam("hub.verify_token") final String verifyToken,
